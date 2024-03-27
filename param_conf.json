@@ -1,0 +1,33 @@
+{
+    "particles": {
+        "num_particles": 10000,
+        "min_disk_radius": 0.2,
+        "max_disk_radius2": 0.5,
+        "max_shift": 0.01
+    },
+
+    "star":{
+        "star_mass": 10e14
+    },
+
+    "time":{
+        "steps": 10000,
+        "time_point": 0.1
+    },
+
+     "neigbors":{
+        "num_neigbors": 20
+    },
+
+    "equation_of_state":{
+        "polytropic_index": 1.5,
+        "proportionality_constant": 1
+    },
+
+    "viscosity": {
+        "alpha": 1.0,
+        "beta": 0.5,
+        "delta1": 1e-2,
+        "delta2": 1e-4
+    }
+}
