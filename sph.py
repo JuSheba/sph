@@ -52,10 +52,6 @@ def init_conf():
 conf = {}
 init_conf()
 
-# for category, attributes in conf.items():
-#     for attribute, value in attributes.items():
-#         globals()[attribute] = value
-
 
 # ---------------------------------------------------------------------------------------------------
 #        PARTICLE INITIALIZATION
@@ -181,7 +177,7 @@ def get_init_pressures(num_particles):
         Array containing initial pressures of particles with shape (N, 1), 
         where N is the number of particles and each row represents the pressure of a particle.
     """
-    pressures = np.full((num_particles, 1), 1.0)
+    pressures = np.full((num_particles, 1), 0.1)
     return pressures.T[0]
 
 
@@ -195,7 +191,7 @@ def get_init_densities(num_particles):
         Array containing initial densities of particles with shape (N, 1), 
         where N is the number of particles and each row represents the density of a particle.
     """
-    densities = np.random.uniform(0.999, 1.0, num_particles)
+    densities = np.random.uniform(0.999, 0.1, num_particles)
     return densities
 
 
@@ -667,11 +663,14 @@ def run():
                 os.makedirs(directory)
 
             plt.savefig(os.path.join(directory, f'{title}_{counter}.png'))
+            plt.clf()
 
         draw(particle_energies, counter, 'energies', 'energies_directory')
+        plt.close()
         draw(particle_densities, counter, 'densities', 'densities_directory')
+        plt.close()
         draw(particle_pressures, counter, 'pressures', 'pressures_directory')
-
+        plt.close()
         
 
 
